@@ -1,6 +1,7 @@
 package calculator;
 
 import javafx.fxml.FXML;
+import java.util.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -27,7 +28,28 @@ public class CalController {
 		int length = expression.length();
 		if (expression.charAt(length-1) != '/' && expression.charAt(length-1) != '*' && expression.charAt(length-1) != '+' && expression.charAt(length-1) != '-')
 		{
-			
+			Stack<Integer> number_Stack = new Stack<Integer>();
+			Stack<Character> operator_Stack = new Stack<Character>();
+			String temp_NumHolder = "";
+			for (int i = 0 ; i < length ; i++)
+			{
+				if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9')
+				{
+					temp_NumHolder += expression.charAt(i);
+				}
+				else if (expression.charAt(i) == '/' || expression.charAt(i) == '*' || expression.charAt(i) == '+' || expression.charAt(i) == '-')
+				{
+					number_Stack.push(Integer.parseInt(temp_NumHolder));
+					temp_NumHolder = "";
+					operator_Stack.push(expression.charAt(i));
+				}
+			}
+			if (temp_NumHolder.compareTo("") != 0)
+			{
+				number_Stack.push(Integer.parseInt(temp_NumHolder));
+			}
+			System.out.println(number_Stack);
+			System.out.println(operator_Stack);
 		}
 	}
 	
@@ -38,7 +60,7 @@ public class CalController {
 		Button button = (Button)node;
 		String num = button.getText();
 		displayNumber(num);
-		if (opClick = true)
+		if (opClick == true)
 		{
 			calculate();
 		}
