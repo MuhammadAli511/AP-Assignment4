@@ -22,34 +22,53 @@ public class CalController {
 		value.setText(value.getText() + num);
 	}
 	
+	public int precedence(char val)
+	{
+		if (val == '+' || val == '-')
+		{	
+			return 1;
+		}
+		else if (val == '*' || val == '/')
+		{	
+			return 2;
+		}
+        return -1;
+    }
+	
+	public void infinixToPostfix(String ex)
+	{
+		String result = "";
+		int len = ex.length();
+		Stack<Character> st1 = new Stack<Character>();
+		for (int i = 0; i < len ; i++)
+		{
+			if(precedence(ex.charAt(i)) > 0)
+			{
+                while(st1.isEmpty()==false && precedence(st1.peek())>=precedence(ex.charAt(i)))
+                {
+                    result += st1.pop();
+                }
+                st1.push(ex.charAt(i));
+            }
+			else
+            {
+                result += ex.charAt(i);
+            }
+        }
+        for (int i = 0; i <= st1.size() ; i++)
+        {
+            result += st1.pop();
+        }
+        System.out.println(result);
+	}
+	
 	public void calculate()
 	{
-		String expression = value.getText();
-		int length = expression.length();
-		if (expression.charAt(length-1) != '/' && expression.charAt(length-1) != '*' && expression.charAt(length-1) != '+' && expression.charAt(length-1) != '-')
+		String exp = value.getText();
+		int length = exp.length();
+		if (exp.charAt(length-1) != '/' && exp.charAt(length-1) != '*' && exp.charAt(length-1) != '+' && exp.charAt(length-1) != '-')
 		{
-			Stack<Integer> number_Stack = new Stack<Integer>();
-			Stack<Character> operator_Stack = new Stack<Character>();
-			String temp_NumHolder = "";
-			for (int i = 0 ; i < length ; i++)
-			{
-				if (expression.charAt(i) >= '0' && expression.charAt(i) <= '9')
-				{
-					temp_NumHolder += expression.charAt(i);
-				}
-				else if (expression.charAt(i) == '/' || expression.charAt(i) == '*' || expression.charAt(i) == '+' || expression.charAt(i) == '-')
-				{
-					number_Stack.push(Integer.parseInt(temp_NumHolder));
-					temp_NumHolder = "";
-					operator_Stack.push(expression.charAt(i));
-				}
-			}
-			if (temp_NumHolder.compareTo("") != 0)
-			{
-				number_Stack.push(Integer.parseInt(temp_NumHolder));
-			}
-			System.out.println(number_Stack);
-			System.out.println(operator_Stack);
+			infinixToPostfix(exp);
 		}
 	}
 	
