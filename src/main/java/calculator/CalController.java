@@ -17,6 +17,8 @@ public class CalController {
 	public static boolean opClick = false;
 	public static boolean numClick = false;
 	public static boolean eligible = false;
+	public static boolean equalEligibilty = false;
+	public String transferVal = "";
 	
 	public void displayNumber(String num)
 	{
@@ -26,6 +28,18 @@ public class CalController {
 	public void displayRes(String num)
 	{
 		resultLab.setText(num);
+	}
+	
+	public void clearRes()
+	{
+		String empty = "";
+		value.setText(empty);
+	}
+	
+	public void clearNumber()
+	{
+		String empty = "";
+		resultLab.setText(empty);
 	}
 	
 	public int checkPrecedence(char val)
@@ -117,8 +131,10 @@ public class CalController {
 		int length = exp.length();
 		if (exp.charAt(length-1) != '/' && exp.charAt(length-1) != '*' && exp.charAt(length-1) != '+' && exp.charAt(length-1) != '-')
 		{
+			equalEligibilty = true;
 			String postfixExp  = infinixToPostfix(exp);
 			String finalResult = calculateExp(postfixExp);
+			transferVal = finalResult;
 			displayRes(finalResult);
 		}
 	}
@@ -145,6 +161,19 @@ public class CalController {
 			Button button = (Button)node;
 			String operation = button.getText();
 			displayNumber(operation);
+		}
+	}
+	
+	public void equalClick(MouseEvent click)
+	{
+		if (equalEligibilty == true)
+		{
+			Object node = click.getSource();
+			Button button = (Button)node;
+			String operation = button.getText();
+			clearRes();
+			clearNumber();
+			displayNumber(transferVal);
 		}
 	}
 	
