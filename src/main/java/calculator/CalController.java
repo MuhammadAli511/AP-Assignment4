@@ -18,6 +18,8 @@ public class CalController {
 	public static boolean numClick = false;
 	public static boolean eligible = false;
 	public static boolean equalEligibilty = false;
+	public int operatorCount = 0;
+	public int digitCount = 0;
 	public String transferVal = "";
 	
 	public void displayNumber(String num)
@@ -42,13 +44,13 @@ public class CalController {
 		resultLab.setText(empty);
 	}
 	
-	public int checkPrecedence(char val)
+	public int checkPrecedence(String val)
 	{
-		if (val == '+' || val == '-')
+		if (val.equals("+") || val.equals("-"))
 		{	
 			return 1;
 		}
-		else if (val == '*' || val == '/')
+		else if (val.equals("*") || val.equals("/"))
 		{	
 			return 2;
 		}
@@ -59,25 +61,63 @@ public class CalController {
 	{
 		String result = "";
 		int len = ex.length();
-		Stack<Character> st1 = new Stack<Character>();
+		Stack<String> st1 = new Stack<String>();
+		int count = 0;
 		for (int i = 0; i < len ; i++)
 		{
-			if(checkPrecedence(ex.charAt(i)) > 0)
+			if (ex.charAt(i) == '+' || ex.charAt(i) == '/' || ex.charAt(i) == '*' || ex.charAt(i) == '-')
 			{
-                while(st1.isEmpty()==false && checkPrecedence(st1.peek()) >= checkPrecedence(ex.charAt(i)) )
+				count++;
+			}
+        }
+        count = (count*2)+1;
+		Vector<String> vec1 = new Vector<String>(count);
+		for (int i = 0; i < count ; i++)
+		{
+			vec1.add("");
+        }
+		int count2 = 0;
+		for (int i = 0; i < len ; i++)
+		{
+			if (ex.charAt(i) >= '0' && ex.charAt(i) <= '9')
+			{
+				String temp = "" + ex.charAt(i);
+				String temp2 = vec1.get(count2) + temp;
+				vec1.set(count2, temp2);
+			}
+			else
+			{
+				count2++;
+				String temp = "" + ex.charAt(i);
+				vec1.set(count2, temp);
+				count2++;
+			}
+        }
+		for (int i = 0; i < vec1.size() ; i++)
+		{
+			int pre = checkPrecedence(vec1.get(i));
+			if(pre > 0)
+			{
+				// It is operator
+                while(st1.isEmpty()==false && checkPrecedence(st1.peek()) >= checkPrecedence(vec1.get(i)) )
                 {
                     result += st1.pop();
                 }
-                st1.push(ex.charAt(i));
+                st1.push(vec1.get(i));
             }
 			else
             {
-                result += ex.charAt(i);
+				// It is number
+				result += "(";
+                result += vec1.get(i);
+                result += ")";
             }
         }
-        for (int i = 0; i <= st1.size() ; i++)
+        while (st1.isEmpty() != true)
         {
+        	
             result += st1.pop();
+            
         }
         return result;
 	}
@@ -91,16 +131,33 @@ public class CalController {
 			char ch = exp.charAt(i);
 			if (ch != '+' && ch != '-' && ch != '*' && ch != '/')
 			{
-				String ch1 = Character.toString(ch);
-				st1.push(ch1);
+				if (ch == '(')
+				{
+					String ch1 = "";
+					String temp = "";
+					while(true)
+					{
+						i++;
+						temp = Character.toString(exp.charAt(i));
+						if (temp.equals(")"))
+						{
+							break;
+						}
+						else
+						{
+							ch1 += temp;
+						}
+					}
+					st1.push(ch1);
+				}
 			}
 			else
 			{
 				String val1 = st1.pop();
 				String val2 = st1.pop();
-				int val1i = Integer.parseInt(String.valueOf(val1));
-				int val2i = Integer.parseInt(String.valueOf(val2));
-				int value = 0;
+				Double val1i = Double.parseDouble(String.valueOf(val1));
+				Double val2i = Double.parseDouble(String.valueOf(val2));
+				Double value = 0.0;
 				if (ch == '+')
 				{
 					value = val1i + val2i;
@@ -117,7 +174,7 @@ public class CalController {
 				{
 					value = val1i / val2i;
 				}
-				String st2 = Integer.toString(value);
+				String st2 = Double.toString(value);
 				st1.push(st2);
 			}
 		}
@@ -125,9 +182,8 @@ public class CalController {
 		return result;
 	}
 	
-	public void calculate()
+	public void calculate(String exp)
 	{
-		String exp = value.getText();
 		int length = exp.length();
 		if (exp.charAt(length-1) != '/' && exp.charAt(length-1) != '*' && exp.charAt(length-1) != '+' && exp.charAt(length-1) != '-')
 		{
@@ -141,6 +197,7 @@ public class CalController {
 	
 	public void numberClick(MouseEvent click)
 	{
+		digitCount++;
 		numClick = true;
 		Object node = click.getSource();
 		Button button = (Button)node;
@@ -148,7 +205,8 @@ public class CalController {
 		displayNumber(num);
 		if (opClick == true)
 		{
-			calculate();
+			String exp = value.getText();
+			calculate(exp);
 		}
 	}
 	
@@ -156,6 +214,7 @@ public class CalController {
 	{
 		if (numClick == true)
 		{
+			operatorCount++;
 			opClick = true;
 			Object node = click.getSource();
 			Button button = (Button)node;
@@ -175,6 +234,60 @@ public class CalController {
 			clearNumber();
 			displayNumber(transferVal);
 		}
+	}
+	
+	public void clearCharacter(MouseEvent click)
+	{
+		String labelBox = value.getText();
+		if (labelBox.length() != 0)
+		{
+			String updated = "";
+			for (int i = 0 ; i < (labelBox.length() - 1) ; i++)
+			{
+				updated += labelBox.charAt(i);
+			}
+			value.setText(updated);
+			if ((labelBox.length() - 1) != 0)
+			{
+				int le = labelBox.length()-1;
+				if (labelBox.charAt(le) == '+' || labelBox.charAt(le) == '-' || labelBox.charAt(le) == '*' || labelBox.charAt(le) == '/')
+				{
+					if (operatorCount == 1)
+					{
+						opClick = false;
+					}
+					operatorCount--;
+				}
+				else
+				{
+					digitCount--;
+					int le1 = labelBox.length()-2;
+					if (operatorCount > 1)
+					{
+						if (labelBox.charAt(le1) == '+' || labelBox.charAt(le1) == '-' || labelBox.charAt(le1) == '*' || labelBox.charAt(le1) == '/')
+						{
+							String exp = value.getText();
+							String updated2 = "";
+							for (int i = 0 ; i < (exp.length() - 1) ; i++)
+							{
+								updated2 += exp.charAt(i);
+							}
+							calculate(updated2);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void clearScreen(MouseEvent click)
+	{
+		opClick = false;
+		numClick = false;
+		eligible = false;
+		equalEligibilty = false;
+		clearRes();
+		clearNumber();
 	}
 	
 }
