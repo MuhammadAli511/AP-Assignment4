@@ -11,6 +11,7 @@ public class CalController {
 	
 	@FXML
 	public Label value;
+	public Label resultLab;
 	
 	
 	public static boolean opClick = false;
@@ -22,7 +23,12 @@ public class CalController {
 		value.setText(value.getText() + num);
 	}
 	
-	public int precedence(char val)
+	public void displayRes(String num)
+	{
+		resultLab.setText(num);
+	}
+	
+	public int checkPrecedence(char val)
 	{
 		if (val == '+' || val == '-')
 		{	
@@ -35,16 +41,16 @@ public class CalController {
         return -1;
     }
 	
-	public void infinixToPostfix(String ex)
+	public String infinixToPostfix(String ex)
 	{
 		String result = "";
 		int len = ex.length();
 		Stack<Character> st1 = new Stack<Character>();
 		for (int i = 0; i < len ; i++)
 		{
-			if(precedence(ex.charAt(i)) > 0)
+			if(checkPrecedence(ex.charAt(i)) > 0)
 			{
-                while(st1.isEmpty()==false && precedence(st1.peek())>=precedence(ex.charAt(i)))
+                while(st1.isEmpty()==false && checkPrecedence(st1.peek()) >= checkPrecedence(ex.charAt(i)) )
                 {
                     result += st1.pop();
                 }
@@ -59,7 +65,50 @@ public class CalController {
         {
             result += st1.pop();
         }
-        System.out.println(result);
+        return result;
+	}
+	
+	public String calculateExp(String exp)
+	{
+		String result = "";
+		Stack<String> st1 = new Stack<String>();
+		for (int i = 0 ; i < exp.length() ; i++)
+		{
+			char ch = exp.charAt(i);
+			if (ch != '+' && ch != '-' && ch != '*' && ch != '/')
+			{
+				String ch1 = Character.toString(ch);
+				st1.push(ch1);
+			}
+			else
+			{
+				String val1 = st1.pop();
+				String val2 = st1.pop();
+				int val1i = Integer.parseInt(String.valueOf(val1));
+				int val2i = Integer.parseInt(String.valueOf(val2));
+				int value = 0;
+				if (ch == '+')
+				{
+					value = val1i + val2i;
+				}
+				else if (ch == '-')
+				{
+					value = val1i - val2i;
+				}
+				else if (ch == '*')
+				{
+					value = val1i * val2i;
+				}
+				else if (ch == '/')
+				{
+					value = val1i / val2i;
+				}
+				String st2 = Integer.toString(value);
+				st1.push(st2);
+			}
+		}
+		result = st1.pop();
+		return result;
 	}
 	
 	public void calculate()
@@ -68,7 +117,9 @@ public class CalController {
 		int length = exp.length();
 		if (exp.charAt(length-1) != '/' && exp.charAt(length-1) != '*' && exp.charAt(length-1) != '+' && exp.charAt(length-1) != '-')
 		{
-			infinixToPostfix(exp);
+			String postfixExp  = infinixToPostfix(exp);
+			String finalResult = calculateExp(postfixExp);
+			displayRes(finalResult);
 		}
 	}
 	

@@ -89,9 +89,9 @@
       </Label>
    </top>
    <center>
-      <Label alignment="BOTTOM_RIGHT" prefHeight="89.0" prefWidth="332.0" style="-fx-border-color: grey;" translateY="22.0" BorderPane.alignment="CENTER">
+      <Label fx:id="resultLab" alignment="BOTTOM_RIGHT" prefHeight="89.0" prefWidth="332.0" style="-fx-border-color: grey;" text="0" translateY="22.0" BorderPane.alignment="CENTER">
          <font>
-            <Font size="28.0" />
+            <Font size="22.0" />
          </font>
       </Label>
    </center>
