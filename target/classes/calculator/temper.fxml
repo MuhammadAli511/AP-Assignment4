@@ -41,7 +41,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.LengthController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.TempController">
    <children>
       <GridPane layoutY="300.0" prefHeight="294.0" prefWidth="245.0">
          <columnConstraints>
@@ -56,7 +56,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
@@ -67,41 +66,42 @@
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="3" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="." GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="7" />
          </children>
       </GridPane>
       <Button layoutX="245.0" layoutY="300.0" minWidth="53.0" mnemonicParsing="false" onMouseClicked="#clearScreen" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="AC" />
       <Button layoutX="245.0" layoutY="398.0" minWidth="53.0" mnemonicParsing="false" onMouseClicked="#clearCharacter" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="CE" />
-      <Label layoutX="136.0" layoutY="16.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="Length">
+      <Label layoutX="107.0" layoutY="14.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="Temperature">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="87.0" text="Length 1">
+      <Label layoutX="24.0" layoutY="87.0" text="Temp 1">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="133.0" text="Length 2">
+      <Label layoutX="24.0" layoutY="133.0" text="Temp 2">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="length1" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="86.0" onMouseClicked="#originalClick" prefHeight="23.0" prefWidth="74.0" style="-fx-font-size: 18;" text="0">
+      <Label fx:id="temp1" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="86.0" onMouseClicked="#originalClick" prefHeight="23.0" prefWidth="74.0" style="-fx-font-size: 18;" text="0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="length2" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="132.0" onMouseClicked="#discountClick" prefHeight="23.0" prefWidth="74.0" style="-fx-font-size: 18;" text="0">
+      <Label fx:id="temp2" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="132.0" onMouseClicked="#discountClick" prefHeight="23.0" prefWidth="74.0" style="-fx-font-size: 18;" text="0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="base" alignment="CENTER" layoutX="14.0" layoutY="11.0" onMouseClicked="#backToCalculator" prefHeight="34.0" prefWidth="30.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="&lt;">
+      <Label fx:id="base" alignment="CENTER" layoutX="9.0" layoutY="7.0" onMouseClicked="#backToCalculator" prefHeight="34.0" prefWidth="30.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="&lt;">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="length1Box" layoutX="89.0" layoutY="85.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="length2Box" layoutX="89.0" layoutY="130.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="temp1Box" layoutX="89.0" layoutY="85.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="temp2Box" layoutX="89.0" layoutY="130.0" prefWidth="150.0" />
    </children>
 </Pane>

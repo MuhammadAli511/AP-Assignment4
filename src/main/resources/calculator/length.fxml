@@ -41,7 +41,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.LengthController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.LengthController">
    <children>
       <GridPane layoutY="300.0" prefHeight="294.0" prefWidth="245.0">
          <columnConstraints>
@@ -71,7 +71,7 @@
       </GridPane>
       <Button layoutX="245.0" layoutY="300.0" minWidth="53.0" mnemonicParsing="false" onMouseClicked="#clearScreen" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="AC" />
       <Button layoutX="245.0" layoutY="398.0" minWidth="53.0" mnemonicParsing="false" onMouseClicked="#clearCharacter" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="CE" />
-      <Label layoutX="136.0" layoutY="29.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="Length">
+      <Label layoutX="136.0" layoutY="16.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="Length">
          <font>
             <Font size="17.0" />
          </font>
@@ -96,7 +96,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="9.0" layoutY="7.0" onMouseClicked="#backToCalculator" prefHeight="34.0" prefWidth="30.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="&lt;">
+      <Label fx:id="base" alignment="CENTER" layoutX="14.0" layoutY="11.0" onMouseClicked="#backToCalculator" prefHeight="34.0" prefWidth="30.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="&lt;">
          <font>
             <Font size="24.0" />
          </font>

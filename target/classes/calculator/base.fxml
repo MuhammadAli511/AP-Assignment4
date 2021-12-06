@@ -194,15 +194,6 @@
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="98.0" text="Volume" />
                                  </children>
                               </Pane>
-                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                                 <children>
-                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@9.png" />
-                                       </image></ImageView>
-                                    <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="100.0" text="Temperature" />
-                                 </children>
-                              </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                                  <children>
                                     <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -237,6 +228,15 @@
                                           <Image url="@13.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="98.0" text="Numerical" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="temp_Page" onMouseClicked="#loadTempPage" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@9.png" />
+                                       </image></ImageView>
+                                    <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="100.0" text="Temperature" />
                                  </children>
                               </Pane>
                            </children>

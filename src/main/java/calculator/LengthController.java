@@ -26,7 +26,7 @@ public class LengthController {
 	public ChoiceBox<String> length2Box;
 	public Label length1;
 	public Label length2;
-	public Pane base;
+	public Label base;
 	
 	@FXML
 	public void initialize()
