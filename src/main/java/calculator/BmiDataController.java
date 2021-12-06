@@ -23,16 +23,21 @@ public class BmiDataController {
 	
 	@FXML
 	ObservableList<String> weightList = FXCollections.observableArrayList("Kg","Pound");
-	public ChoiceBox weightBox;
+	ObservableList<String> heightList = FXCollections.observableArrayList("cm","feet");
+	public ChoiceBox<String> weightBox;
+	public ChoiceBox<String> heightBox;
 	public Label weight;
 	public Label height;
 	public Pane base;
+	public Label bm;
 	
 	@FXML
 	public void initialize()
 	{
 		weightBox.setValue("Kg");
 		weightBox.setItems(weightList);
+		heightBox.setValue("cm");
+		heightBox.setItems(heightList);
 	}
 	
 	public void clearWeight()
@@ -76,6 +81,38 @@ public class BmiDataController {
 			String num = button.getText();
 			displayNumber(num);
 		}
+	}
+	
+	public void calculate(MouseEvent click)
+	{
+		String we = weightBox.getValue();
+		String he = heightBox.getValue();
+		Double upWe = 0.0;
+		Double upHe = 0.0;
+		if (we.equals("Pound") == true)
+		{
+			upWe = Double.valueOf(weight.getText());
+			upWe = upWe / 2.205;
+		}
+		else
+		{
+			upWe = Double.valueOf(weight.getText());
+		}
+		if (he.equals("feet") == true)
+		{
+			upHe = Double.valueOf(height.getText());
+			upHe = upHe * 30.48;
+		}
+		else
+		{
+			upHe = Double.valueOf(height.getText());
+		}
+		
+		Double bmi = upWe / (upHe * upHe);
+		bmi = bmi * 10000;
+		double accurate = (double) Math.round(bmi * 100) / 100;
+		String accS = Double.toString(accurate);
+		bm.setText(accS);
 	}
 	
 	public void clearCharacter(MouseEvent click)
@@ -126,18 +163,18 @@ public class BmiDataController {
 	
 	public void originalClick(MouseEvent click)
 	{
-		weight.setStyle("-fx-font-size: 18;-fx-text-fill: #FF6600;-fx-border-style: groove");
-		height.setStyle("-fx-font-size: 18;-fx-text-fill: #000000;-fx-border-style: groove");
+		weight.setStyle("-fx-font-size: 18;-fx-text-fill: #FF6600;-fx-border-style: dotted");
+		height.setStyle("-fx-font-size: 18;-fx-text-fill: #000000;-fx-border-style: dotted");
 		weightB = true;
 		heightB = false;
 	}
 	
 	public void discountClick(MouseEvent click)
 	{
-		weight.setStyle("-fx-font-size: 18;-fx-text-fill: #000000;-fx-border-style: groove");
-		height.setStyle("-fx-font-size: 18;-fx-text-fill: #FF6600;-fx-border-style: groove");
-		weightB = true;
-		heightB = false;
+		weight.setStyle("-fx-font-size: 18;-fx-text-fill: #000000;-fx-border-style: dotted");
+		height.setStyle("-fx-font-size: 18;-fx-text-fill: #FF6600;-fx-border-style: dotted");
+		weightB = false;
+		heightB = true;
 	}
 	
 	public void backToCalculator() throws IOException

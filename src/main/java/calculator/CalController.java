@@ -22,6 +22,7 @@ public class CalController {
 	public Label resultLab;
 	public Pane discount_Page;
 	public Pane bmi_Page;
+	public Pane length_Page;
 	
 	
 	public static boolean opClick = false;
@@ -309,6 +310,13 @@ public class CalController {
 	{
 		Parent discountPage = FXMLLoader.load(getClass().getResource("bmiData.fxml"));
 		Stage window = (Stage) bmi_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
+	}
+	
+	public void loadLengthPage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("length.fxml"));
+		Stage window = (Stage) length_Page.getScene().getWindow();
 		window.setScene(new Scene(discountPage,335,600));
 	}
 	
