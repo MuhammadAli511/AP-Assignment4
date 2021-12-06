@@ -1,10 +1,18 @@
 package calculator;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+
+import java.io.IOException;
 import java.util.*;
 import javafx.scene.control.Label;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
 
 public class CalController {
 
@@ -12,6 +20,8 @@ public class CalController {
 	@FXML
 	public Label value;
 	public Label resultLab;
+	public Pane discount_Page;
+	public Pane bmi_Page;
 	
 	
 	public static boolean opClick = false;
@@ -46,11 +56,11 @@ public class CalController {
 	
 	public int checkPrecedence(String val)
 	{
-		if (val.equals("+") || val.equals("-"))
+		if (val.equals("+") == true || val.equals("-") == true)
 		{	
 			return 1;
 		}
-		else if (val.equals("*") || val.equals("/"))
+		else if (val.equals("*") == true || val.equals("/") == true)
 		{	
 			return 2;
 		}
@@ -115,9 +125,7 @@ public class CalController {
         }
         while (st1.isEmpty() != true)
         {
-        	
-            result += st1.pop();
-            
+            result += st1.pop();   
         }
         return result;
 	}
@@ -160,19 +168,19 @@ public class CalController {
 				Double value = 0.0;
 				if (ch == '+')
 				{
-					value = val1i + val2i;
+					value = val2i + val1i;
 				}
 				else if (ch == '-')
 				{
-					value = val1i - val2i;
+					value = val2i - val1i;
 				}
 				else if (ch == '*')
 				{
-					value = val1i * val2i;
+					value = val2i * val1i;
 				}
 				else if (ch == '/')
 				{
-					value = val1i / val2i;
+					value = val2i / val1i;
 				}
 				String st2 = Double.toString(value);
 				st1.push(st2);
@@ -288,6 +296,20 @@ public class CalController {
 		equalEligibilty = false;
 		clearRes();
 		clearNumber();
+	}
+	
+	public void loadDiscountPage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("discount.fxml"));
+		Stage window = (Stage) discount_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
+	}
+	
+	public void loadBmiPage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("bmiData.fxml"));
+		Stage window = (Stage) bmi_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
 	}
 	
 }

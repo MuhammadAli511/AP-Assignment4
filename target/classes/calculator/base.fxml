@@ -124,18 +124,18 @@
                            <children>
                               <Pane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <ImageView fitHeight="52.0" fitWidth="70.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="52.0" fitWidth="70.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/1.png" />
+                                          <Image backgroundLoading="true" url="@1.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="98.0" text="Data" />
                                  </children>
                               </Pane>
-                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                              <Pane fx:id="bmi_Page" onMouseClicked="#loadBmiPage" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                                  <children>
                                     <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/2.png" />
+                                          <Image url="@2.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="100.0" text="BMI" />
                                  </children>
@@ -144,25 +144,25 @@
                                  <children>
                                     <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/3.png" />
+                                          <Image url="@3.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutY="72.0" prefHeight="17.0" prefWidth="101.0" text="Age" />
                                  </children>
                               </Pane>
-                              <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                              <Pane fx:id="discount_Page" onMouseClicked="#loadDiscountPage" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                  <children>
-                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/4.png" />
+                                          <Image url="@4.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="98.0" text="Discount" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
-                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/5.png" />
+                                          <Image url="@5.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="100.0" text="Date" />
                                  </children>
@@ -171,7 +171,7 @@
                                  <children>
                                     <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/6.png" />
+                                          <Image url="@6.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="101.0" text="Length" translateY="-5.0" />
                                  </children>
@@ -180,7 +180,7 @@
                                  <children>
                                     <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/7.png" />
+                                          <Image url="@7.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="100.0" text="Area" />
                                  </children>
@@ -189,7 +189,7 @@
                                  <children>
                                     <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/8.png" />
+                                          <Image url="@8.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="98.0" text="Volume" />
                                  </children>
@@ -198,34 +198,34 @@
                                  <children>
                                     <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/9.png" />
+                                          <Image url="@9.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="100.0" text="Temperature" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                                  <children>
-                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/10.png" />
+                                          <Image url="@10.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="98.0" text="Speed" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <children>
-                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/11.png" />
+                                          <Image url="@11.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="99.0" text="Time" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                  <children>
-                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/12.png" />
+                                          <Image url="@12.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="100.0" text="Mass" />
                                  </children>
@@ -234,7 +234,7 @@
                                  <children>
                                     <ImageView fitHeight="54.0" fitWidth="49.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../pics/13.png" />
+                                          <Image url="@13.png" />
                                        </image></ImageView>
                                     <Label alignment="CENTER" layoutX="1.0" layoutY="72.0" prefHeight="17.0" prefWidth="98.0" text="Numerical" />
                                  </children>
