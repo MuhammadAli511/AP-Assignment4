@@ -86,12 +86,12 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="length1" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="86.0" onMouseClicked="#originalClick" prefHeight="23.0" prefWidth="74.0" style="-fx-font-size: 18;" text="0">
+      <Label fx:id="length1" alignment="CENTER_RIGHT" layoutX="181.0" layoutY="86.0" onMouseClicked="#originalClick" prefHeight="23.0" prefWidth="144.0" style="-fx-font-size: 18;" text="0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="length2" alignment="CENTER_RIGHT" layoutX="251.0" layoutY="132.0" onMouseClicked="#discountClick" prefHeight="23.0" prefWidth="74.0" style="-fx-font-size: 18;" text="0">
+      <Label fx:id="length2" alignment="CENTER_RIGHT" layoutX="181.0" layoutY="132.0" onMouseClicked="#discountClick" prefHeight="23.0" prefWidth="144.0" style="-fx-font-size: 18;" text="0">
          <font>
             <Font size="14.0" />
          </font>
@@ -101,7 +101,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="length1Box" layoutX="89.0" layoutY="85.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="length2Box" layoutX="89.0" layoutY="130.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="length1Box" layoutX="89.0" layoutY="85.0" prefHeight="26.0" prefWidth="62.0" />
+      <ChoiceBox fx:id="length2Box" layoutX="89.0" layoutY="130.0" prefHeight="26.0" prefWidth="62.0" />
    </children>
 </Pane>

@@ -122,7 +122,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Pane prefHeight="200.0" prefWidth="200.0">
+                              <Pane fx:id="mbgb_Page" onMouseClicked="#loadmbgbPage" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <ImageView fitHeight="52.0" fitWidth="70.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>

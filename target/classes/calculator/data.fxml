@@ -35,15 +35,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.BmiDataController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.DataController">
    <children>
       <GridPane layoutY="300.0" prefHeight="294.0" prefWidth="245.0">
          <columnConstraints>
@@ -71,59 +69,39 @@
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#numberClick" style="-fx-text-fill: black; -fx-background-color: white; -fx-border-color: white; -fx-font-size: 20;" text="." GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <Button layoutX="244.0" layoutY="300.0" minWidth="53.0" mnemonicParsing="false" onMouseClicked="#clearScreen" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="AC" />
-      <Button layoutX="244.0" layoutY="398.0" minWidth="53.0" mnemonicParsing="false" onMouseClicked="#clearCharacter" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="CE" />
-      <Label layoutX="146.0" layoutY="22.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="BMI">
+      <Button layoutX="245.0" layoutY="300.0" minWidth="53.0" mnemonicParsing="false" onMouseClicked="#clearScreen" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="AC" />
+      <Button layoutX="245.0" layoutY="398.0" minWidth="53.0" mnemonicParsing="false" onMouseClicked="#clearCharacter" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="CE" />
+      <Label layoutX="145.0" layoutY="14.0" style="-fx-font-weight: bold; -fx-font-size: 20;" text="Data">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="77.0" text="Weight">
+      <Label layoutX="24.0" layoutY="87.0" text="Data 1">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="122.0" text="Height">
+      <Label layoutX="24.0" layoutY="133.0" text="Data 2">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="weight" alignment="CENTER_RIGHT" layoutX="189.0" layoutY="76.0" onMouseClicked="#originalClick" prefHeight="23.0" prefWidth="126.0" style="-fx-font-size: 18;" text="0">
+      <Label fx:id="data1" alignment="CENTER_RIGHT" layoutX="182.0" layoutY="86.0" onMouseClicked="#originalClick" prefHeight="27.0" prefWidth="143.0" style="-fx-font-size: 18;" text="0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="height" alignment="CENTER_RIGHT" layoutX="189.0" layoutY="122.0" onMouseClicked="#discountClick" prefHeight="23.0" prefWidth="126.0" style="-fx-font-size: 18;" text="0">
+      <Label fx:id="data2" alignment="CENTER_RIGHT" layoutX="182.0" layoutY="132.0" onMouseClicked="#discountClick" prefHeight="27.0" prefWidth="143.0" style="-fx-font-size: 18;" text="0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Pane fx:id="base" layoutX="24.0" layoutY="22.0" onMouseClicked="#backToCalculator" prefHeight="34.0" prefWidth="30.0">
-         <children>
-            <Label alignment="CENTER" layoutX="-1.0" layoutY="-3.0" prefHeight="34.0" prefWidth="30.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="&lt;">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <ChoiceBox fx:id="weightBox" layoutX="79.0" layoutY="75.0" prefHeight="26.0" prefWidth="74.0" />
-      <ChoiceBox fx:id="heightBox" layoutX="79.0" layoutY="120.0" prefHeight="26.0" prefWidth="74.0" />
-      <Button layoutX="244.0" layoutY="496.0" mnemonicParsing="false" onMouseClicked="#calculate" prefHeight="98.0" prefWidth="88.0" style="-fx-background-color: white; -fx-text-fill: #FF6600; -fx-border-color: white; -fx-font-size: 20;" text="GO" />
-      <Label layoutX="121.0" layoutY="159.0" text="BMI : ">
+      <Label fx:id="base" alignment="CENTER" layoutX="14.0" layoutY="11.0" onMouseClicked="#backToCalculator" prefHeight="34.0" prefWidth="30.0" style="-fx-font-weight: bold; -fx-font-size: 24;" text="&lt;">
          <font>
-            <Font size="20.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="bm" layoutX="177.0" layoutY="160.0" text="0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="73.0" fitWidth="253.0" layoutX="45.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@14.jpeg" />
-         </image>
-      </ImageView>
+      <ChoiceBox fx:id="data1Box" layoutX="89.0" layoutY="85.0" prefHeight="25.0" prefWidth="74.0" />
+      <ChoiceBox fx:id="data2Box" layoutX="89.0" layoutY="130.0" prefHeight="25.0" prefWidth="74.0" />
    </children>
 </Pane>
