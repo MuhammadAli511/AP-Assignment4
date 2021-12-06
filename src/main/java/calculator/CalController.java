@@ -25,6 +25,7 @@ public class CalController {
 	public Pane length_Page;
 	public Pane temp_Page;
 	public Pane mbgb_Page;
+	public Pane area_Page;
 	
 	
 	public static boolean opClick = false;
@@ -333,6 +334,13 @@ public class CalController {
 	{
 		Parent discountPage = FXMLLoader.load(getClass().getResource("data.fxml"));
 		Stage window = (Stage) mbgb_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
+	}
+	
+	public void loadAreaPage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("area.fxml"));
+		Stage window = (Stage) area_Page.getScene().getWindow();
 		window.setScene(new Scene(discountPage,335,600));
 	}
 	
