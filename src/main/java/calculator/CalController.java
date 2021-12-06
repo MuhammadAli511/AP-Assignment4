@@ -26,6 +26,10 @@ public class CalController {
 	public Pane temp_Page;
 	public Pane mbgb_Page;
 	public Pane area_Page;
+	public Pane volume_Page;
+	public Pane speed_Page;
+	public Pane mass_Page;
+	public Pane age_Page;
 	
 	
 	public static boolean opClick = false;
@@ -341,6 +345,34 @@ public class CalController {
 	{
 		Parent discountPage = FXMLLoader.load(getClass().getResource("area.fxml"));
 		Stage window = (Stage) area_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
+	}
+	
+	public void loadVolumePage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("volume.fxml"));
+		Stage window = (Stage) volume_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
+	}
+	
+	public void loadSpeedPage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("speed.fxml"));
+		Stage window = (Stage) speed_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
+	}
+	
+	public void loadMassPage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("mass.fxml"));
+		Stage window = (Stage) mass_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
+	}
+	
+	public void loadAgePage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("age.fxml"));
+		Stage window = (Stage) age_Page.getScene().getWindow();
 		window.setScene(new Scene(discountPage,335,600));
 	}
 	
