@@ -30,6 +30,7 @@ public class CalController {
 	public Pane speed_Page;
 	public Pane mass_Page;
 	public Pane age_Page;
+	public Pane currency_Page;
 	
 	
 	public static boolean opClick = false;
@@ -373,6 +374,13 @@ public class CalController {
 	{
 		Parent discountPage = FXMLLoader.load(getClass().getResource("age.fxml"));
 		Stage window = (Stage) age_Page.getScene().getWindow();
+		window.setScene(new Scene(discountPage,335,600));
+	}
+	
+	public void loadCurrencyPage() throws IOException
+	{
+		Parent discountPage = FXMLLoader.load(getClass().getResource("currency.fxml"));
+		Stage window = (Stage) currency_Page.getScene().getWindow();
 		window.setScene(new Scene(discountPage,335,600));
 	}
 	
