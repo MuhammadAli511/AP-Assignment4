@@ -101,11 +101,11 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="ye" layoutX="41.0" layoutY="419.0" text="Label" />
-      <Label fx:id="mo" layoutX="142.0" layoutY="419.0" text="Label" />
-      <Label fx:id="da" layoutX="41.0" layoutY="518.0" text="Label" />
-      <Label fx:id="ho" layoutX="142.0" layoutY="518.0" text="Label" />
-      <Label fx:id="we" layoutX="250.0" layoutY="419.0" text="Label" />
-      <Label fx:id="mi" layoutX="249.0" layoutY="518.0" text="Label" />
+      <Label fx:id="ye" layoutX="52.0" layoutY="419.0" text="0" />
+      <Label fx:id="mo" layoutX="153.0" layoutY="419.0" text="0" />
+      <Label fx:id="da" layoutX="52.0" layoutY="518.0" text="0" />
+      <Label fx:id="ho" layoutX="153.0" layoutY="518.0" text="0" />
+      <Label fx:id="we" layoutX="260.0" layoutY="419.0" text="0" />
+      <Label fx:id="mi" layoutX="263.0" layoutY="518.0" text="0" />
    </children>
 </Pane>
